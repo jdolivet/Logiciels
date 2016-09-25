@@ -1,0 +1,13 @@
+body {
+background-image:url(lazuli.jpg);
+
+}
+
+#canevas {
+  background-color:AliceBlue;
+  color:black;
+}
+
+math { 
+  color:inherit;
+}

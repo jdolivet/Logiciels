@@ -1,0 +1,14 @@
+body { 
+  background-image:url(pierres.jpg);
+}
+
+#canevas { 
+  border-left:1px solid orange;
+  border-right:1px solid orange; 
+  background-color:palegoldenrod;
+  color:black;
+}
+
+math { 
+  color:inherit;
+}

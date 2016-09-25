@@ -1,0 +1,180 @@
+<?xml version='1.0'  encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:mml="http://www.w3.org/1998/Math/MathML"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xml:lang="en">
+
+<!--
+  Copyright (C)  Sesamath 2011
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+
+<head>
+  <title>exercice fabriqu&eacute;</title>
+<link rel="stylesheet" href="style2/impr.css" type="text/css" />
+<link rel="stylesheet" href="style2/azur.css" type="text/css" />
+<script   type="text/javascript"  src="xcas/base.js">
+</script>
+<script   type="text/javascript"  src="live.js">
+</script>
+<script  type="text/javascript">
+// <![CDATA[
+function recadre(){
+  // uniquement pout internet Explorer
+  if (!window.ActiveXObject)
+    return;
+  var elem=document.getElementById("canevas");
+  if (elem.style.height<document.body.clientHeight)
+    elem.style.height=document.body.clientHeight; 
+}
+// ]]>
+</script>
+<script language="xcas">
+// <![CDATA[
+
+Teste(a,nb):={
+si function_diff(f)(a)==nb
+ alors
+  LineTan(f(x),a);
+  retourne "vert","Bravo","vert";
+sinon
+  g(x):=nb*(x-a)+f(a);
+  plot(g(x));
+  retourne "rouge","Essaye encore !","rouge";
+fsi
+};
+
+Trace(g):={
+f(x):=g;
+Cf:=plot(g);
+}
+// ]]>
+</script>
+
+</head>
+<body onload="xcasBalise();fabExo(-1);recadre()">
+<div id='canevas'>
+<p>
+</p>
+<h1 style="text-align: center;">
+ 
+ &#160; Nombre d&#233;riv&#233; &#160;
+
+</h1>
+<hr style="width: 100%; height: 2px;"/>
+<p>
+ 
+ 
+ <br/>
+ 
+ On repr&#233;sente une fonction dont Tu dois donner le nombre d&#233;riv&#233; en
+ 
+ <fab>
+  
+   &#160;
+  
+  <span class="sortieDL" onmousedown="return false" onmouseup="fabEcrit(this)" id="fab0" title="fab0" texte="2" style="">
+   <math display="inline" index="undefined" xmlns='http://www.w3.org/1998/Math/MathML' >
+    <mn>
+     2
+    </mn>
+   </math>
+  </span>
+  
+  &#160;&#160;
+ 
+ </fab>
+ 
+ : 
+ 
+ <fab>
+  
+  &#160;&#160;
+  
+  <input id="fab1" onclick="fabEcrit(this)" onchange="" onkeypress="this.focus()" onkeyup="fabChapeau(this,event)" title="fab1"/>
+  
+  &#160;
+ 
+ </fab>
+ 
+ 
+ <fab>
+  
+  &#160;&#160;
+  
+  <input type="button" id="fab2" value="ok" onclick="xc.eval('Teste','fab0','fab1');xc.imprimeMml('fab3',0,true,true);xc.imprimeSvg(fab.graphique,true);" title="fab2" cible="fab3" arguments="fab0 fab1" xcas="Teste"/>
+  
+  &#160;
+ 
+ </fab>
+ 
+ 
+ <fab>
+  
+  &#160;
+  
+  <span class="sortieDL" onmousedown="return false" onmouseup="fabEcrit(this)" id="fab3" title="fab3">
+    ...
+  </span>
+  
+  &#160;&#160;
+ 
+ </fab>
+ 
+ 
+ <br/>
+</p>
+<div class="svg" id="svg" title="svg" style="width: 9.6cm; height: 9.1cm;">
+</div>
+<div class="distrib">
+ 
+ 
+ <p class="ovale">
+  
+  
+  <img onclick="fabExo(-1)" src="img/bouton_gauche.png">
+   
+  
+  </img>
+  
+  
+  <span id="numexo">
+   
+  
+  </span>
+  
+  
+  <input id="listeExos" onchange="fabDistribue()" title="listeExos" index="0" liste="2 Trace(x^2)`-1 Trace(x^3)" style="background-color: white;" recepteurs="fab0"/>
+  
+  
+  <img onclick="fabExo(1)" src="img/bouton_droit.png">
+   
+  
+  </img>
+  
+ 
+ </p>
+</div>
+</div>
+<input id='recepteurs' type='hidden' value='fab0'/>
+
+<script>
+fab.graphique=new xcasSvg('svg',12,12,10,10);fab.graphique.svgGrid(-5,-5,5,5);fabInitialiseSvg(-5,-5,5,5,7);;fab.nbElt=4;fabCadreSvg(-5,-5,5,5,7);
+</script>
+</body>
+</html>

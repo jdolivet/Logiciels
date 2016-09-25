@@ -1,0 +1,13 @@
+body {
+background-image:url(ebene.jpg);
+
+}
+
+#canevas {
+  background-color:PaleGoldenrod;//Khaki;//lightyellow;
+  color:black;
+}
+
+math { 
+  color:inherit;
+}

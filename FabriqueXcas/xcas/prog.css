@@ -1,0 +1,41 @@
+div.prog {
+  width:95%;
+  margin-left:2%;
+  height:300px;
+  padding:0px;
+  border: 2px solid navy;
+  -moz-border-radius:1%;
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-border-radius:1em;
+  -webkit-box-shadow: 10px 10px 5px #888;
+  border-radius:1%;
+  box-shadow: 10px 10px 5px #888;
+
+  background:white;
+}
+
+
+div.prog div.console {
+ display:inline-block;
+  top:2%;
+  left:0%;
+  border:0px;
+  border-right:4px dotted red;
+  width:40%;
+  height:96%;
+  margin-left:0;
+ -webkit-box-shadow: 0px 0px 0px #fff;
+  -webkit-border-radius:0px;
+  -moz-box-shadow:0px 0px 0px 0px;
+  -moz-border-radius:0px;
+}
+
+
+div.prog textarea {
+ display:inline;
+  border:0px;
+  margin-top:1%;
+  width:55%;
+  height:95%;
+  vertical-align:top;
+}

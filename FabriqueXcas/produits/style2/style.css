@@ -1,0 +1,12 @@
+body {
+  background-image:url("acierbrosse.jpg");
+}
+
+#canevas {
+  color:navy;
+  background-color:lightyellow;
+}
+
+math { 
+  color:inherit;
+}

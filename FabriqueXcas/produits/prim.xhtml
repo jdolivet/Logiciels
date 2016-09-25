@@ -1,0 +1,120 @@
+<?xml version='1.0'  encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:mml="http://www.w3.org/1998/Math/MathML"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xml:lang="en">
+
+<!--
+  Copyright (C)
+  Sesamath 2010
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+
+
+<head>
+  <title>exercice fabriqu&eacute;</title>
+<link rel="stylesheet" href="style/impr.css" type="text/css" />
+<link rel='stylesheet' href='style/poissons.css' type='text/css' /><script   type="text/javascript"  src="xcas/base.js">
+</script>
+<script   type="text/javascript"  src="live.js">
+</script>
+<script  type="text/javascript">
+// <![CDATA[
+function recadre(){
+  // uniquement pout internet Explorer
+  if (!window.ActiveXObject)
+    return;
+  var elem=document.getElementById("canevas");
+  if (elem.style.height<document.body.clientHeight)
+    elem.style.height=document.body.clientHeight; 
+}
+// ]]>
+</script>
+<script language="xcas">
+// <![CDATA[
+estPrimitive(F,f):={
+local message;
+local Fprim:=simplify(derive(F));
+si normal(Fprim(x)-f(x))==0
+ alors 
+  message:="Bravo"
+sinon
+  si normal(derive(Fprim/f))==0
+   alors 
+    message:= "Multiplie F par une constante bien choisie"
+  sinon
+    message:="Essaye encore";
+  fsi
+fsi
+retourne message,Fprim;
+}
+
+// ]]>
+</script>
+
+</head>
+<body onload="xcasBalise();fabExo(-1);recadre()">
+    
+ 
+<div id='canevas'>
+ <div style="text-align: center; top: 3px; left: 10px; margin-left: 0pt; position: absolute; width: 974px;">
+ </div>
+ <h1 style="top: 3px; left: 10px; margin-left: 0pt; position: absolute; text-align: center; width: 974px;">
+ Recherche de primitives </h1>
+ <h3 style="top: 62px; left: 14px; margin-left: 0pt; position: absolute;">
+Tu dois trouver une primitive de la fonction telle que f(x) soit donné par :  <br/>
+ </h3>
+ <p title="f" id="f" horsligne="1" class="sortie" texte="x" style="color: black; top: 93px; left: 14px; margin-left: 0pt; position: absolute; width: 974px;">
+  <math display="block" index="undefined" xmlns='http://www.w3.org/1998/Math/MathML' >
+   <mi>
+x   </mi>
+  </math>
+ </p>
+ <p style="top: 142px; left: 12px; margin-left: 0pt; position: absolute;">
+ Entre une primitive de f :  <br/>
+ </p>
+ <p style="top: 155px; left: 305px; margin-left: 0pt; position: absolute;">
+F(x)=   <span>
+   <input title="F" onkeypress="this.focus()" onchange="" id="F"/>
+  </span>
+   <input type="button" title="fab9" onclick="xc.eval('estPrimitive','F','f');xc.imprimeMml('m',0,true,true);xc.imprimeSvg(fab.graphique,true);xc.imprimeMml('Fprim',1,true,true);xc.imprimeSvg(fab.graphique,true);" value="ok" id="fab9" cible="m Fprim" arguments="F f" xcas="estPrimitive"/>
+  <br/>
+ </p>
+ <h3 style="top: 202px; left: 292px; margin-left: 0pt; position: absolute;">
+  <span style="color: black; background-color: yellow;">
+La dérivée de F s'affichera ici à titre de contrôle :  </span>
+  <br/>
+ </h3>
+ <p title="Fprim" id="Fprim" horsligne="1" class="sortie" texte="-1/x^2" style="color: black; top: 241px; left: 11px; margin-left: 0pt; position: absolute; width: 974px;">
+. </p>
+ <p title="m" id="m" horsligne="1" class="sortie" texte="'Multiplie F par une constante bien choisie'" style="color: black; top: 280px; left: 12px; margin-left: 0pt; position: absolute; width: 974px;">
+. </p>
+ <div class="distrib" style="top: 339px; left: 10px; margin-left: 0pt; position: absolute; width: 974px;">
+  <img src="img/flecheg.png" onclick="fabExo(-1)">
+  </img>
+  <input liste="x`x^2`x^3`x^4`1/x^2" index="0" title="listeExos" onchange="fabDistribue()" id="listeExos" recepteurs="f" style="background-color: white;"/>
+  <img src="img/fleched.png" onclick="fabExo(1)">
+  </img>
+ </div>
+</div>
+<input id='recepteurs' type='hidden' value='f'/>
+
+<script></script>
+
+</body>
+</html>

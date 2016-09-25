@@ -1,0 +1,13 @@
+body {
+background-image:url(cerulean.jpg);
+
+}
+
+#canevas {
+  background-color:LightSkyBlue;//Orange;
+  color:black;
+}
+
+math { 
+  color:inherit;
+}

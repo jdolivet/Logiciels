@@ -1,0 +1,12 @@
+body {
+    background-image:url(aladin.jpg);
+}
+
+#canevas {
+  background-color:oldlace;
+  color:black;
+}
+
+math { 
+  color:inherit;
+}

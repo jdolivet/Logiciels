@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="fr" 
+xmlns:mml="http://www.w3.org/1998/Math/MathML">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+
+<title>Squelette</title>
+
+<script   type="text/javascript"  src="xcas/base.js">
+</script>
+
+<script language="xcas">
+// <![CDATA[
+// Taper ici les fonctions xcas :
+
+// ]]>
+</script>
+
+
+<script language="javascript">
+// <![CDATA[
+// Taper ici les fonctions javascript :
+
+// ]]>
+</script>
+
+<style>
+
+</style>
+
+</head>
+
+<body onload="xcasBalise()">
+
+<h1>Squelette</h1>
+
+<p>Ce fichier peut servir de base &agrave; la construction
+d'une application utilisant la biblioth&egrave;que javascript
+pour xcas.
+</p>
+<div id="svg">
+</div>
+<script>
+var svg=new xcasSvg("svg",20,20);
+svg.svgGrid(-5,-5,5,5);
+var xc=new xcas();
+xc.evalTout("plot(x^2)");
+xc.imprimeSvg(svg,true);
+xc.evalTout("plot(2/x)");
+xc.imprimeSvg(svg,false);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<?xml version='1.0'  encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:mml="http://www.w3.org/1998/Math/MathML"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xml:lang="en">
+
+<!--
+  Copyright (C)
+  J-P 2010
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+
+
+<head>
+  <title>exercice fabriqu&eacute;</title>
+<link rel="stylesheet" href="style/impr.css" type="text/css" />
+<link rel='stylesheet' href='style/bulles.css' type='text/css' /><script   type="text/javascript"  src="xcas/base.js">
+</script>
+<script   type="text/javascript"  src="live.js">
+</script>
+<script  type="text/javascript">
+// <![CDATA[
+function recadre(){
+  // uniquement pout internet Explorer
+  if (!window.ActiveXObject)
+    return;
+  var elem=document.getElementById("canevas");
+  if (elem.style.height<document.body.clientHeight)
+    elem.style.height=document.body.clientHeight; 
+}
+// ]]>
+</script>
+<script language="xcas">
+// <![CDATA[
+F(x,y,z):={
+local p:=factoriser(x*y);
+local rep:="";
+si factoriser(p-z)==0
+ alors
+  message:="Bravo !";
+sinon
+  message:="Essaye encore !";
+fsi
+retourne p,message;
+}
+
+// ]]>
+</script>
+
+</head>
+<body onload="xcasBalise();fabExo(-1);recadre()">
+    
+ 
+<div id='canevas'>
+ <div style="text-align: center; top: 3px; left: 10px; margin-left: 0pt; position: absolute; width: 98%;">
+ </div>
+ <h1 style="text-align: center; top: 3px; left: 10px; margin-left: 0pt; position: absolute; width: 98%;">
+ Produit de fractions  </h1>
+ <hr style="width: 98%; height: 2px; top: 49px; left: 10px; margin-left: 0pt; position: absolute;"/>
+  <p style="top: 61px; left: 10px; margin-left: 0pt; position: absolute;">
+Tu dois obtenir cette expression :  </p>
+ <p title="aff_z" id="aff_z" horsligne="1" class="sortie" texte="a*b/c" style="color: black; top: 90px; left: 12px; margin-left: 0pt; position: absolute; width: 98%;">
+  <math display="block" index="undefined" xmlns='http://www.w3.org/1998/Math/MathML' >
+   <mi>
+a   </mi>
+   <mo>
+*   </mo>
+   <mfrac>
+    <mrow>
+     <mi>
+b     </mi>
+    </mrow>
+    <mrow>
+     <mi>
+c     </mi>
+    </mrow>
+   </mfrac>
+  </math>
+ </p>
+  <p style="top: 145px; left: 10px; margin-left: 0pt; position: absolute;">
+... en multipliant cette expression :  </p>
+ <p title="aff_x" id="aff_x" horsligne="1" class="sortie" texte="a/c" style="color: black; top: 174px; left: 12px; margin-left: 0pt; position: absolute; width: 98%;">
+  <math display="block" index="undefined" xmlns='http://www.w3.org/1998/Math/MathML' >
+   <mfrac>
+    <mrow>
+     <mi>
+a     </mi>
+    </mrow>
+    <mrow>
+     <mi>
+c     </mi>
+    </mrow>
+   </mfrac>
+  </math>
+ </p>
+  <p style="top: 230px; left: 10px; margin-left: 0pt; position: absolute;">
+... par celle-ci :   <span>
+   <input title="aff_y" onkeypress="this.focus()" onchange="" id="aff_y"/>
+  </span>
+    <input type="button" title="fab3" onclick="xc.eval('F','aff_x','aff_y','aff_z');xc.imprimeMml('aff_p',0,true,true);xc.imprimeSvg(fab.graphique,true);xc.imprimeMml('m',1,true,true);xc.imprimeSvg(fab.graphique,true);" value="ok" id="fab3" cible="aff_p m" arguments="aff_x aff_y aff_z" xcas="F"/>
+  <br/>
+ </p>
+ <p title="m" id="m" horsligne="1" class="sortie" texte="'Essaye encore !'" style="color: black; top: 263px; left: 12px; margin-left: 0pt; position: absolute; width: 98%;">
+. </p>
+ <p style="top: 293px; left: 10px; margin-left: 0pt; position: absolute;">
+ Le produit des deux expression est égal à :  <br/>
+ </p>
+ <p title="aff_p" id="aff_p" horsligne="1" class="sortie" texte="a^2/b" style="color: black; top: 322px; left: 12px; margin-left: 0pt; position: absolute; width: 98%;">
+. </p>
+ <div class="distrib" style="top: 410px; left: 10px; margin-left: 0pt; position: absolute; width: 98%;">
+  <img src="img/flecheg.png" onclick="fabExo(-1)">
+  </img>
+  <input liste="a*b/c a/c`a^2/b a/b`a/b^2 a/b`a a/b" index="0" title="listeExos" onchange="fabDistribue()" id="listeExos" recepteurs="aff_z aff_x" style="background-color: white;"/>
+  <img src="img/fleched.png" onclick="fabExo(1)">
+  </img>
+ </div>
+ <p style="top: 529px; left: 10px; margin-left: 0pt; position: absolute;">
+  </p>
+</div>
+<input id='recepteurs' type='hidden' value='aff_z aff_x'/>
+
+<script>fabInitialiseSvg(-5,-5,5,5,10);;fab.nbElt=6;fabCadreSvg(-5,-5,5,5,10);fab.feuilleCalc.nb_lign=undefined;fab.feuilleCalc.nb_col=undefined;fab.nb_lign='';fab.nb_col='undefined';fab.sauvTab='undefined';fab.feuilleCalc.sauvegarde='undefined';setTimeout('fab.feuilleCalc.restaure()',1000)</script>
+
+</body>
+</html>

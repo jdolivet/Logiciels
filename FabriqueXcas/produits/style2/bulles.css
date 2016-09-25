@@ -1,0 +1,15 @@
+
+body {
+  background-image:url(bulles.jpg);/*url(fond1.jpg);*/
+}
+
+#canevas { 
+  border-left:1px solid navy;
+  border-right:1px solid navy; 
+  background-color:mintcream; 
+  color:black;
+}
+
+math { 
+  color:inherit;
+}

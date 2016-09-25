@@ -1,0 +1,13 @@
+body {
+background-image:url(emerald.jpg);
+
+}
+
+#canevas {
+  background-color:YellowGreen;
+  color:black;
+}
+
+math { 
+  color:inherit;
+}

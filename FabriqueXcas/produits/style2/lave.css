@@ -1,0 +1,13 @@
+body {
+background-image:url(lava.jpg);
+
+}
+
+#canevas {
+  background-color:Orange;
+  color:black;
+}
+
+math { 
+  color:inherit;
+}
