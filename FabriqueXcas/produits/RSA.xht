@@ -1,0 +1,277 @@
+<?xml version='1.0'  encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC
+    "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+    "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:mml="http://www.w3.org/1998/Math/MathML"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xml:lang="en">
+
+<!--
+  Copyright (C)
+  Sesamath 2013
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+
+
+<head>
+  <title>RSA</title>
+<link rel="stylesheet" href="style2/impr.css" type="text/css" />
+<link rel='stylesheet' href='style2/style.css' type='text/css' /><script   type="text/javascript"  src="xcas/base.js">
+</script>
+<script   type="text/javascript"  src="live.js">
+</script>
+<script  type="text/javascript">
+// <![CDATA[
+function recadre(){
+  // uniquement pout internet Explorer
+  if (!window.ActiveXObject)
+    return;
+  var elem=document.getElementById("canevas");
+  if (elem.style.height<document.body.clientHeight)
+    elem.style.height=document.body.clientHeight; 
+}
+// ]]>
+</script>
+<script language="xcas">
+// <![CDATA[
+RSA(n,c,t):={
+local E,S,l,k,x;
+E:=asc(string(t));
+l:=length(E);
+S:=[];
+pour k de 0 jusque l-1 faire
+  x:=E[k];
+  S:=concat(S,irem(x^c,n));
+fpour;
+afficher S,S
+}
+;
+deRSA(n,d,E):={
+local S,l,k,x;
+l:=length(E);
+S:=[];
+pour k de 0 jusque l-1 faire
+  x:=E[k];
+  S:=concat(S,irem(x^d,n));
+fpour;
+afficher char(S),S
+}
+;
+casse(n,c):={
+local phi,p,q,d;
+phi:=euler(n);
+d:=irem(iegcd(c,phi)[0],phi);
+p:=facteurs_premiers(n)[0];
+q:=facteurs_premiers(n)[2];
+afficher p,q,d
+}
+
+// ]]>
+</script>
+
+</head>
+<body onload="xcasBalise();fabExo(-1);recadre()">
+    
+ 
+<div id='canevas'>
+<h1 align="center">
+ &#160;Chiffrement RSA
+</h1>
+<h2>
+ Codage 
+ <br/>
+</h2>
+<p>
+ Il faut une 
+ <b>
+  cl&#233; publique
+ </b>
+  constitu&#233;e de 2 nombres : 
+ <br/>
+</p>
+<ul>
+ <li>
+  n est le produit de 2 nombres premiers p et q si possibles grands. Le but &#233;tant que n soit un nombre tr&#232;s difficile &#224; d&#233;composer.
+ </li>
+ <li>
+  c intervient dans le codage. Il doit &#234;tre premier avec (p-1)(q-1)=&#966;(n)
+ </li>
+</ul>
+<p>
+ Cr&#233;ation d'une cl&#233; publique :
+ <br/>
+</p>
+<p>
+ <fab>
+  &#160;&#160;
+  <input type="button" id="fab0" value="n" onclick="xc.eval('ithprime(rand(1,200,500))*ithprime(rand(1,200,500))','');xc.imprimeMml('fab1',0,true,true);xc.imprimeSvg(fab.graphique,true);" title="" cible="fab1" arguments="" xcas="ithprime(rand(1,200,500))*ithprime(rand(1,200,500))"/>
+  &#160;
+ </fab>
+  n = 
+ <fab>
+  &#160;
+  <span class="sortieDL" onmousedown="return false" onmouseup="fabEcrit(this)" id="fab1" title="">
+   &#8230;
+  </span>
+  &#160;&#160;
+ </fab>
+ &#160; et 
+ <fab>
+  &#160;&#160;
+  <input type="button" id="fab2" value="c" onclick="xc.eval('ithprime(rand(1,100,199))[0]','');xc.imprimeMml('fab3',0,true,true);xc.imprimeSvg(fab.graphique,true);" title="" cible="fab3" arguments="" xcas="ithprime(rand(1,100,199))[0]"/>
+  &#160;
+ </fab>
+ &#160; c = 
+ <fab>
+  &#160;
+  <span class="sortieDL" onmousedown="return false" onmouseup="fabEcrit(this)" id="fab3" title="">
+   &#8230;
+  </span>
+  &#160;&#160;
+ </fab>
+</p>
+<p>
+ <b>
+  Remarque :
+ </b>
+  cette cl&#233; est cr&#233;&#233;e par Alice
+ . Ainsi toute personne
+  souhaitant envoyer un message &#224; Alice pourra coder le message &#224; partir de l'algorithme de codage RSA.
+ <br type="_moz"/>
+</p>
+<p>
+ On entre le message &#224; coder :
+</p>
+<p>
+ <fab>
+  &#160;&#160;
+  <input id="fab4" onclick="fabEcrit(this)" onchange="" onkeypress="this.focus()" onkeyup="fabChapeau(this,event)" title=""/>
+  &#160;
+ </fab>
+ &#160;
+</p>
+<p>
+ Puis on code le message &#224; partir de l'algorithme de codage.
+</p>
+<ul>
+ <li>
+  Apr&#232;s avoir transformer le texte en une liste de nombres, chaque entier a est chiffr&#233; en un entier b tel que b&#8801;a^c[n].
+ </li>
+</ul>
+<p>
+ <fab>
+  &#160;&#160;
+  <input type="button" id="fab5" value="codage" onclick="xc.eval('RSA','fab1','fab3','fab4');xc.imprimeMml('fab6',0,true,true);xc.imprimeSvg(fab.graphique,true);xc.imprimeMml('fab13',1,true,true);xc.imprimeSvg(fab.graphique,true);" title="" cible="fab6 fab13" arguments="fab1 fab3 fab4" xcas="RSA"/>
+  &#160;
+ </fab>
+ &#160;
+</p>
+<p class="sortie" onmousedown="return false" onmouseup="fabEcrit(this)" horsligne="1" id="fab6" title="">
+ &#8230;
+</p>
+<p>
+ Le message peut ainsi circuler (accompagn&#233; de la cl&#233; publique &#224; savoir le couple (n,c)) en toute confidentialit&#233;.
+</p>
+<p>
+ Seule Alice sera capable de d&#233;chiffrer le message.
+</p>
+<h2>
+ D&#233;codage
+</h2>
+<p>
+ Il faut alors la 
+ <b>
+  cl&#233; priv&#233;e
+ </b>
+  pour d&#233;coder le message.
+</p>
+<p>
+ Soit la personne a cr&#233;&#233;e la cl&#233; et conna&#238;t donc la cl&#233; priv&#233;e soit on construit un algorithme permettant de d&#233;composer n.
+</p>
+<p>
+ <fab>
+  &#160;&#160;
+  <input type="button" id="fab7" value="casse" onclick="xc.eval('casse','fab1','fab3');xc.imprimeMml('fab8',0,true,true);xc.imprimeSvg(fab.graphique,true);xc.imprimeMml('fab9',1,true,true);xc.imprimeSvg(fab.graphique,true);xc.imprimeMml('fab10',2,true,true);xc.imprimeSvg(fab.graphique,true);" title="" cible="fab8 fab9 fab10" arguments="fab1 fab3" xcas="casse"/>
+  &#160;
+ </fab>
+  p = 
+ <fab>
+  &#160;
+  <span class="sortieDL" onmousedown="return false" onmouseup="fabEcrit(this)" id="fab8" title="">
+   &#8230;
+  </span>
+  &#160;&#160;
+ </fab>
+  q = 
+ <fab>
+  &#160;
+  <span class="sortieDL" onmousedown="return false" onmouseup="fabEcrit(this)" id="fab9" title="">
+   &#8230;
+  </span>
+  &#160;&#160;
+ </fab>
+ &#160;
+</p>
+<p>
+ Une fois que l'on a p et q, on peut d&#233;terminer &#966;(n)=(p-1)(q-1) et, &#224; partir de la r&#233;solution d'une &#233;quation diophantienne, on trouve un entier d v&#233;rifiant cd&#8801;1[&#966;(n)] et 0&#8804;d&#8804;&#966;(n). (On cherche l'inverse de c dans &#8484;/&#966;(n)&#8484;)
+</p>
+<p>
+ On obtient donc d = 
+ <fab>
+  &#160;
+  <span class="sortieDL" onmousedown="return false" onmouseup="fabEcrit(this)" id="fab10" title="">
+   &#8230;
+  </span>
+  &#160;&#160;
+ </fab>
+ &#160;
+</p>
+<p>
+ On peut alors d&#233;coder le message &#224; l'aide de l'algorithme de d&#233;codage.
+</p>
+<ul>
+ <li>
+  Chaque entier b est d&#233;chiffr&#233; en un entier a tel que a&#8801;b^c[n]. Puis on transforme la liste de nombres en texte.
+ </li>
+</ul>
+<p>
+ <fab>
+  &#160;&#160;
+  <input id="fab16" onclick="fabEcrit(this)" onchange="" onkeypress="this.focus()" onkeyup="fabChapeau(this,event)" title=""/>
+  &#160;
+ </fab>
+ (par exemple, faire copier-coller de la liste
+  de nombres correspondant au message cod&#233;)
+ <br/>
+</p>
+<p>
+ <fab>
+  &#160;&#160;
+  <input type="button" id="fab14" value="decodage" onclick="xc.eval('deRSA','fab1','fab10','fab16');xc.imprimeMml('fab15',0,true,true);xc.imprimeSvg(fab.graphique,true);" title="" cible="fab15" arguments="fab1 fab10 fab16" xcas="deRSA"/>
+  &#160;
+ </fab>
+ <br/>
+</p>
+<p class="sortie" onmousedown="return false" onmouseup="fabEcrit(this)" horsligne="1" id="fab15" title="">
+ &#8230;
+</p>
+</div>
+<input id='recepteurs' type='hidden' value=''/>
+
+<script></script>
+
+</body>
+</html>
