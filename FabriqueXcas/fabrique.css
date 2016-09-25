@@ -1,0 +1,361 @@
+body {
+  margin : 0px; 
+  padding : 0px; 
+  border : 0px;  
+  height:100%;
+  overflow:auto;
+  font-family :Trebuchet, Arial Unicode MS, sans-serif; 
+  font-size:12px;
+  line-height:1.6em;
+}
+
+body>* { 
+  margin:0;
+}
+
+
+
+#barreOutils,#canevas,#progJs, #progXcas, #testProg, div.post_it, #ouvrir,#enregistrer {
+ position:absolute;
+}
+
+div.post_it, #ouvrir, #enregistrer { 
+  background-color:yellow;
+  display:none;
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-box-shadow: 10px 10px 5px #888;
+  box-shadow: 10px 10px 5px #888;
+}
+
+div.post_it {
+/*  top:80px;
+  right:100px;*/
+  bottom:10px;
+  left:5px;
+  z-index:1;
+  width:300px;
+  padding:5px; 
+}
+
+#dialogue * , #distrib *, #ouvrir *, #enregistrer *{
+ margin:5px;
+}
+
+
+#distrib *{ 
+  width:290px;
+}
+
+#distribDonnees { 
+  height:150px;
+}
+
+#ouvrir, #enregistrer { 
+  top:40px;
+  left:270px;
+}
+
+#barreOutils, #canevas {
+ right:5px;
+ width:974px;
+ padding:3px 10px 3px 10px;
+ border : 1px solid black;
+}
+
+#barreOutils{
+ top:5px;
+ height:24px;
+ background-color:#c0c0c0;
+ border-bottom:0;
+ -moz-box-shadow: 0px -20px 10px -10px rgba(0,0,0,0.2) inset; 
+ -webkit-box-shadow: 0px -20px 10px -10px rgba(0,0,0,0.2) inset; 
+ box-shadow: 0px -20px 10px -10px rgba(0,0,0,0.2) inset; 
+}
+
+
+button.bloc { 
+  border:0;
+  background-color:transparent;
+  font-family:Bookman, Times New Roman, serif;
+  font-size:13px;
+  font-weight:bold;
+  padding:0;
+  margin-bottom:2px;
+}
+
+#barreOutils img, button.bloc {
+/* border:solid 2px #c0c0c0;*/
+margin:0 2px 0 2px;
+border:0;
+}
+
+#barreOutils img:hover, button.bloc:hover {
+/* border:outset 2px grey;*/
+  opacity:0.3;
+}
+
+#barreOutils * {
+ vertical-align:middle;
+}
+
+#barreOutils select { 
+  max-width:5.5em;
+  height:1.65em;
+  margin-right:3px;
+}
+
+#composant { 
+  background-color:yellow;
+}
+
+#choixStyle{ 
+  background-color:snow;
+  width:4.3em;
+}
+
+#nom,#evt {
+  width:6em;
+}
+
+#action,#arguments,#href {
+ width:290px;
+}
+
+#actif,#pvaleur,#href { 
+  display:none;
+}
+
+#canevas {
+  position:fixed;
+  top:36px;
+  bottom:5px;
+  border-top:0px;
+  overflow:auto;
+  font-size:1.2em;
+}
+
+#canevas>* {
+ position:static;
+  margin:10px 0 0 0;
+}
+
+#canevas p.sortie, #canevas span.sortieDL, #canevas span.formule {
+  border : 1px solid blue;
+  margin:10px 2px 2px 2px;
+}
+
+#canevas p.sortie:hover, #canevas span.sortieDL:hover, #canevas span.formule:hover {
+  border : 2px solid blue;
+  margin:8px 0 0 0;
+}
+
+
+#canevas span.sortieDL  { 
+  height:3em;
+  line-height:3em;
+}
+
+#canevas span.sortieDL * { 
+  line-height:3em;
+  overflow:hidden;
+}
+
+
+p.sortie { 
+  width:100%;
+  text-align:center;
+}
+
+p.sortie math { 
+  line-height:auto;
+  vertical-align:middle;
+}
+
+#canevas div.histo {
+  width:60%;
+  margin-left:20%;
+  height:30%;
+  text-align:center;
+  border:1px solid gray;
+  overflow:auto;
+} 
+
+
+#canevas table.tab, #canevas table.tabInv { 
+  border-collapse:collapse;
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+#canevas table.tab td {
+  border-width:1px;
+  border-style:solid;
+}
+
+#canevas table.tabInv td {
+  border-width:1px;
+  border-color:lightgrey;
+  border-style:dashed;
+}
+
+#canevas img {
+  vertical-align:middle;
+}
+
+#canevas a { 
+  text-decoration:underline;
+  color:blue;
+  cursor:pointer;
+}
+
+#canevas a:hover { 
+  color:navy;
+}
+
+
+#progXcas, #testProg, #gereProg {
+  background-color:white;
+  min-width:260px;
+}
+
+#progXcas, #testProg {
+  left:5px;
+  right:1004px;
+  padding:0 0.5% 0 0.5%;
+}
+
+#progXcas {
+  top:5px;
+  bottom:143px;
+  border:1px solid black;
+  padding:0;
+}
+
+#progXcas h2, #testProg h2 { 
+  width:100%;
+  color:black;
+  margin:0px 0 5px 0;
+  border-bottom:1px solid gray;
+  text-align:center;
+  font-size:1.4em;
+  padding-top:3px;
+  height:26px;
+ background-color:lightgrey;
+ -moz-box-shadow: 0px -20px 10px -10px rgba(0,0,0,0.2) inset; 
+ -wzbkit-box-shadow: 0px -20px 10px -10px rgba(0,0,0,0.2) inset; 
+ box-shadow: 0px -20px 10px -10px rgba(0,0,0,0.2) inset; 
+
+
+}
+
+#testProg {
+  height:134px;
+  bottom:5px;
+  overflow:hidden;
+  border:solid 1px black;
+  padding:0;
+
+}
+
+#testProg input {
+  margin-left:5px;
+  width:175px;
+}
+
+#gereProg {
+  position:absolute;
+  width:100%;
+  bottom:5px;
+  left:0px; 
+  margin:0;
+  text-align:center;
+}
+
+#gereProg button {
+  background-color:gold;
+}
+
+#gereProg button:hover {
+  background-color:lightyellow;
+}
+
+#progXcas #text_area { 
+  position:absolute;
+  width:100%;
+  top:31px;
+  bottom:30px;
+  border-bottom:dotted 1px gray;
+}
+
+#progXcas textarea { 
+  position:relative;
+  height:100%;
+  width:96%;
+  left:3%;
+  border:0;
+  margin:0;
+  padding:0px;
+  background:none;
+}
+
+
+div.interact { 
+  display:inline;
+}
+
+div.distrib { 
+  width:100%;
+  margin-left:0;
+  margin-right:0;
+  text-align:center;
+}
+
+p.ovale { 
+  background-color:gray;
+  padding:0;
+  width:330px;
+  margin-left:auto;
+  margin-right:auto;
+ -moz-border-radius:2em;
+ -webkit-border-radius:2em;
+ border-radius:2em;
+} 
+
+p.ovale input { 
+  width:200px;
+}
+
+p.ovale img:hover { 
+  opacity:0.75;
+}
+
+svg {
+  position:relative;
+  margin :0;
+  background-color:white;
+  border:0;
+}
+
+#svg { 
+  position:relative;
+  width:12.5cm;
+  height:11.8cm;
+  margin:0 auto 0 auto;
+  overflow:hidden;
+}
+
+optgroup.orange { 
+  background-color:orange;
+}
+
+optgroup.bleu { 
+  background-color:mintcream;
+}
+
+optgroup.orange * { 
+  background-color:orange;
+}
+
+optgroup.bleu  * { 
+  background-color:mintcream;
+}

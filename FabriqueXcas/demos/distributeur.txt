@@ -1,0 +1,224 @@
+xhtml@`Sesamath@`@`<h1>
+ 
+ 
+ 
+ 
+ 
+ 
+ &#160;D&#233;mo technique : le distributeur
+
+
+
+
+
+ 
+ <hr id=\"null\"/>
+</h1>
+<p>
+ 
+ 
+ 
+ 
+ 
+ Le distributeur permet &#224; l'&#233;l&#232;ve de passer d'une question &#224; l'autre.
+
+
+
+
+
+</p>
+<div class=\"distrib\" contentEditable=\"false\">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <p class=\"ovale\">
+  
+  
+  
+  
+  
+  
+  
+  
+  <img onclick=\"fabExo(-1)\" src=\"img/bouton_gauche.png\">
+   
+   
+   
+   
+  
+  
+  
+  
+  </img>
+  
+  
+  
+  
+  
+  
+  
+  
+  <span id=\"numexo\">
+   
+   
+   
+   
+  
+  
+  
+  
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  <input title=\"listeExos\" id=\"listeExos\" style=\"background-color: white;\" onfocus=\"fabEditeExos(true,this)\" onchange=\"fabDistribue()\" oncontextmenu=\"fabEditeDistributeur()\" type=\"text\" index=\"0\" recepteurs=\"fab0 fab1 fab2 fab3\" liste=\"1+1 $1+1 hasard(3) $hasard(3)  
+`3^2 $3^2 hasard(5) $hasard(5)\"/>
+  
+  
+  
+  
+  
+  
+  
+  
+  <img onclick=\"fabExo(1)\" src=\"img/bouton_droit.png\">
+   
+   
+   
+   
+  
+  
+  
+  
+  </img>
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+ </p>
+</div>
+<p>
+ 
+ 
+ 
+ 
+ Par d&#233;faut, il distribue des donn&#233;es non &#233;valu&#233;es :
+
+
+
+
+</p>
+<p title=\"fab0\" class=\"sortie\" id=\"fab0\" onmousedown=\"return false\" onmouseup=\"fabEcrit(this)\" oncontextmenu=\"fabEditeAction(this)\" texte=\"1+1\" horsligne=\"1\" contentEditable=\"false\">
+ <math index=\"undefined\" display=\"block\" xmlns='http://www.w3.org/1998/Math/MathML' >
+  <mml:span>
+   <mml:mn>
+    1
+   </mml:mn>
+   <mml:mo>
+    +
+   </mml:mo>
+   <mml:mn>
+    1
+   </mml:mn>
+  </mml:span>
+ </math>
+</p>
+<p>
+ 
+ 
+ 
+ 
+ En pr&#233;c&#233;dant la donn&#233;e d'une dollar, elle sera &#233;valu&#233;e :
+
+
+
+
+</p>
+<p title=\"fab1\" class=\"sortie\" id=\"fab1\" onmousedown=\"return false\" onmouseup=\"fabEcrit(this)\" oncontextmenu=\"fabEditeAction(this)\" arguments=\"null\" cible=\"\" texte=\"2\" horsligne=\"1\" contentEditable=\"false\">
+ <math index=\"undefined\" display=\"block\" xmlns='http://www.w3.org/1998/Math/MathML' >
+  <mml:span>
+   <mml:mn>
+    2
+   </mml:mn>
+  </mml:span>
+ </math>
+</p>
+<p>
+ 
+ 
+ 
+ On peut ainsi g&#233;n&#233;rer des &#233;nonc&#233;s al&#233;atoires :&#160;
+ 
+ 
+ <fab xmlns=\"http://www.w3.org/1999/xhtml\" contentEditable=\"false\">
+  
+  
+  &#160;
+  
+  
+  <span title=\"fab2\" class=\"sortieDL\" id=\"fab2\" onmousedown=\"return false\" onmouseup=\"fabEcrit(this)\" oncontextmenu=\"fabEditeAction(this)\" texte=\"hasard 3\" contentEditable=\"false\">
+   <math index=\"undefined\" display=\"inline\" xmlns='http://www.w3.org/1998/Math/MathML' >
+    <mml:span>
+     <mml:mi>
+      hasard
+     </mml:mi>
+     <mml:mrow>
+      <mml:mfenced>
+       <mml:mrow>
+        <mml:mn>
+         3
+        </mml:mn>
+       </mml:mrow>
+      </mml:mfenced>
+     </mml:mrow>
+    </mml:span>
+   </math>
+  </span>
+  
+  
+  &#160;&#160;
+ 
+ 
+ </fab>
+ 
+ 
+ =
+ 
+ 
+ <fab xmlns=\"http://www.w3.org/1999/xhtml\" contentEditable=\"false\">
+  
+  
+  &#160;
+  
+  
+  <span title=\"fab3\" class=\"sortieDL\" id=\"fab3\" onmousedown=\"return false\" onmouseup=\"fabEcrit(this)\" oncontextmenu=\"fabEditeAction(this)\" texte=\"0\" contentEditable=\"false\">
+   <math index=\"undefined\" display=\"inline\" xmlns='http://www.w3.org/1998/Math/MathML' >
+    <mml:span>
+     <mml:mn>
+      0
+     </mml:mn>
+    </mml:span>
+   </math>
+  </span>
+  
+  
+  &#160;&#160;
+ 
+ 
+ </fab>
+</p>
+@`fabInitialiseSvg(-5,-5,5,5,10);fabInitialiseSvg(-5,-5,5,5,10);fabInitialiseSvg(-5,-5,5,5,10);fabInitialiseSvg(-5,-5,5,5,10);fabInitialiseSvg(-5,-5,5,5,10);fabInitialiseSvg(-5,-5,5,5,10);fabInitialiseSvg(-5,-5,5,5,10);@`4@`false@`false@`

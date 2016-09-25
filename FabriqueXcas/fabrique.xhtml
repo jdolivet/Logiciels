@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="fr" 
+xmlns:mml="http://www.w3.org/1998/Math/MathML">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<title>La fabrique</title>
+<link rel="stylesheet" href="fabrique.css" type="text/css" />
+<script   type="text/javascript"  src="produits/xcas/base.js">
+</script>
+<script   type="text/javascript"  src="produits/live.js">
+</script>
+<script   type="text/javascript"  src="fabrique.js">
+</script>
+<script type="text/javascript">
+document.oncontextmenu = new Function("return false");
+var jsFocus=false, xcasFocus=false;
+</script>
+<script  id="script">
+</script>
+
+<script language="xcas">
+</script>
+
+
+</head>
+
+<body  onkeyup="fabAlt(event)"  onload="recadre();document.getElementById('programmeXcas').focus();">
+
+
+<div id="barreOutils">
+<img src="img/pageBlanche.png" alt="Nouveau" title="Nouveau projet" onclick="fabNouveau()"/>
+<img src="img/document-open.png" alt="Ouvrir un projet" title="Ouvrir un projet" onclick="vaEtVient('ouvrir')"/>
+<img src="img/disquette.png" alt="disk" title="Enregistrer" 
+onclick="if (!fabDejaImprime) alert('Il faut previsualiser au moins une fois en cliquant sur l oeil'); else vaEtVient('enregistrer');"/>
+
+
+<select id="composant"  onchange="fabComposant(this);" title="Type de composant">
+<option >Ins&eacute;rer au niveau du curseur :</option>
+<optgroup class="orange" label="Entr&eacute;es">
+<option>Entr&eacute;e de texte</option>
+<option>Bouton</option>
+<option>Lien Xcas</option>
+<option>Selecteur</option>
+<option>Distributeur de donn&eacute;es</option>
+</optgroup>
+<optgroup label="Sorties">
+<option>Affichage hors ligne</option>
+<option>Affichage dans ligne</option>
+<option>Affichage graphique</option>
+<option>Affichage historique</option> 
+</optgroup>
+<optgroup class="bleu" label="Composants XCAS">
+<option>Console</option>
+<option>Tableur</option>
+<option>Programmation</option>
+<option>Formule statique</option>
+</optgroup>
+</select>
+
+
+<button class="bloc" onclick="appliqueStyle('formatBlock;h1');" title="Titre">H1</button>
+<button class="bloc" onclick="appliqueStyle('formatBlock;h2');" title="Sous titre">H2</button>
+<button class="bloc" onclick="appliqueStyle('formatBlock;h3');" title="Sous sous titre">H3</button>
+<button class="bloc" onclick="appliqueStyle('formatBlock;p');" title="Paragraphe">P</button>
+
+<img src="img/punaise2.png" alt="abs"  title="Fixer" onclick="positionAbsolute()"/>
+<img src="img/justifyleft.gif"  onclick="fabFormat('justifyLeft');" alt="gauche" title="Gauche"/>
+<img src="img/justifycenter.gif"  onclick="fabFormat('justifyCenter');" alt="centrer" title="Centrer"/>
+<img src="img/justifyright.gif"  onclick="fabFormat('justifyRight');" alt="droite" title="Droite"/>
+<img class="image" src="img/unorderedlist.gif" onclick="fabFormat('insertUnorderedList')" alt="liste" title="liste &agrave; puces"/>
+<img class="image" src="img/orderedlist.gif" onclick="fabFormat('insertOrderedList');" alt="liste num" title="liste num&eacute;rot&eacute;e"/>
+<img src="img/table2.png" alt="tableau"  onclick="fabInsereTable()" title="Tableau"/>
+<img src="img/rule.gif"  onclick="fabExecCommand('InsertHorizontalRule', false, null);" alt="ligne hz" title="Ligne"/>
+<button class="bloc" onclick="fabInsereLienHtml()" title="Lien html" style="color:blue;">
+L
+</button>
+<button class="bloc" onclick="fabFormat('bold');" title="Gras"><strong>G</strong></button>
+<img src="img/italic.gif"  onclick="fabFormat('italic');" alt="italique" title="Italique"/>
+<button class="bloc" onclick="fabFormat('underline');"  title="Soulign&eacute;"><u>S</u></button>
+<button class="bloc" onclick="fabPolice('4');"  title="+gros">A<sup>+</sup></button>
+<button class="bloc" onclick="fabPolice('2')"  title="+petit">A<sup>-</sup></button>
+<img src="img/palette.png" alt="palette" title="Couleurs" onclick="initialisePalette();vaEtVient('palette')"/>
+
+
+<select onchange="fabSpe(this)" title="Caract&egrave;res sp&eacute;ciaux">
+<option>&#8804;</option>
+<option>&#8804;</option>
+<option>&#8805;</option>
+<option>&#8800;</option>
+<option>&#8712;</option>
+<option>&#215;</option>
+<option>&#247;</option>
+<option>&#177;</option>
+<option>&#8658;</option>
+<option>&#8660;</option>
+<option>&#8594;</option>
+<option>&#8599;</option>
+<option>&#8600;</option>
+<option>&#8704;</option>
+<option>&#8707;</option>
+<option>&#8734;</option>
+</select>
+<select onchange="fabSpe(this)" title="Grec">
+<option>&#945;</option>
+<option>&#945;</option>
+<option>&#946;</option>
+<option>&#947;</option>
+<option>&#948;</option>
+<option>&#949;</option>
+<option>&#952;</option>
+<option>&#955;</option>
+<option>&#956;</option>
+<option>&#960;</option>
+<option>&#961;</option>
+<option>&#963;</option>
+<option>&#964;</option>
+<option>&#966;</option>
+<option>&#968;</option>
+<option>&#915;</option>
+<option>&#916;</option>
+<option>&#937;</option>
+</select>
+
+<img src="img/oeil.png" alt="web" title="Visualiser" onclick="fabImprime()"/>
+<select id="choixStyle" onchange="fabStyle(this)" title="Feuille de style">
+  <option>style</option>
+  <option>aubergine</option>
+  <option>ardoise</option>
+  <option>azur</option>
+  <option>bronze</option>
+  <option>aladin</option>
+  <option>bulles</option>
+  <option>citron</option>
+  <option>cramoisi</option>
+  <option>ebene</option>
+  <option>emeraude</option>
+  <option>fuschia</option>				
+  <option>lave</option>
+  <option>lazuli</option>
+  <option>pierres</option>
+</select>
+<a href="aide2/index.html" target="_blank"><img src="img/aide.png" alt="aide" title="Aide"/></a>
+
+</div>
+
+<div id="canevas" contenteditable="true" >
+<p>&nbsp;</p>
+</div>
+
+<div class="post_it" id="distrib">
+<p>Donn&eacute;es : </p>
+
+<textarea id="distribDonnees" onkeypress="this.blur();this.focus()"  onkeyup='fabChapeau(this,event)'></textarea>
+
+<p>
+Nom des champs qui recevront
+les donn&eacute;es :
+</p>
+<input id="recepteurs"  onclick="fabCibleEcrit(this)" /><br/>
+<button onclick="fabFermeDistributeur()">valider</button>
+</div>
+
+
+<div id="progXcas" >
+<h2>Fonctions Xcas</h2>
+<div id="text_area">
+<textarea id="programmeXcas"  onkeypress="this.blur();this.focus()"  onkeyup='fabChapeau(this,event)'>
+</textarea>
+</div>
+<div id="gereProg" >
+<button onclick="indente()">Indenter</button>
+<button onclick="compile()">Compiler</button>
+</div>
+</div>
+
+
+
+<div id="testProg">
+<h2>Test des fonctions Xcas</h2>
+<p>
+<input id="test" onkeypress="this.blur();this.focus()"  onkeyup='fabChapeau(this,event)'/>
+<button onclick="compile();xcasRequeteMml(document.getElementById('test').value,'cibleTest',false,true)">
+valider
+</button>
+</p>
+<p id="cibleTest"></p>
+</div>
+
+<div  class="post_it" id="formule">
+<p>Entrez la formule xcas</p>
+<input id="entreeFormule" /><br/>
+Evaluer <input id="evaluer" type="checkbox"/>
+&nbsp;&nbsp;
+D&eacute;ployer <input id="deployer" type="checkbox"/>
+<button onclick="fabImprimeFormule(this.parentNode)">valider</button>
+</div>
+
+<div  class="post_it" id="dialogue">
+Nom : <input  id="nom"/>
+<hr/>
+<p id="pvaleur">
+Texte : <input id="valeur"/>
+</p>
+<p id="actif">
+L'&eacute;v&eacute;nement :
+<input  id="evt" />
+<br/>
+d&eacute;clenche l'appel de la fonction xcas :
+<input id="action"/>
+avec pour argument(s) :
+<input id="arguments" onclick="fabCibleEcrit(this)"/>
+</p>
+<p id="href">
+Cible(s) :
+<br/>
+<input id="cible" onclick="fabCibleEcrit(this)"/>
+</p>
+<br/>
+<button onclick="fabInsereAction()">
+Valider
+</button>
+<button onclick="fabSupprimeElt()">
+Supprimer cet &eacute;l&eacute;ment
+</button>
+</div>
+
+<div class="post_it" id="palette">
+<p>
+Texte :
+<select id="couleur" onchange="teste_couleur()">
+  <option style="background:black;color:white">Noir</option>
+  <option style="background:white;color:black">Blanc</option>
+  <option style="background:gray;color:black">Gris</option>
+  <option style="background:red;color:white">Rouge</option>
+  <option style="background:yellow;color:black">Jaune</option>
+  <option style="background:blue;color:white">Bleu</option>
+  <option style="background:orange;color:black">Orange</option>		
+  <option style="background:purple;color:white">Violet</option>
+  <option style="background:green;color:white">Vert</option>
+</select>
+<br/>
+Fond :
+<select id="couleur_fond" onchange="teste_couleur()">
+  <option style="background:black;color:white">Noir</option>
+  <option style="background:white;color:black">Blanc</option>
+  <option style="background:gray;color:black">Gris</option>
+  <option style="background:red;color:white">Rouge</option>
+  <option style="background:yellow;color:black">Jaune</option>
+  <option style="background:blue;color:white">Bleu</option>
+  <option style="background:orange;color:black">Orange</option>		
+  <option style="background:purple;color:white">Violet</option>
+  <option style="background:green;color:white">Vert</option>
+</select>
+&nbsp;
+<span id="test_couleur">Test des couleurs</span><br/>
+<button onclick="colore()">VALIDER</button>
+<button onclick="vaEtVient('palette')">Fermer</button>
+</p>
+</div>
+
+<div id="fenetre" class="post_it">
+<form>
+<table>
+<tr>
+<td>x<sub>min</sub></td><td><input id="xm" value="-5" onchange="newGrid=true" /></td>
+</tr><tr>
+<td>y<sub>min</sub></td><td><input id="ym" value="-5" onchange="newGrid=true" /></td>
+</tr><tr>
+<td>x<sub>max</sub></td><td><input id="xMax" value="5" onchange="newGrid=true" /></td>
+</tr><tr>
+<td>y<sub>max</sub></td><td><input id="yMax" value="5" onchange="newGrid=true" /></td>
+</tr><tr>
+<td>
+hauteur (cm)
+</td><td>
+<input id="hauteur" value="10"/></td>
+</tr><tr>
+</tr><tr>
+<td colspan="2">
+<input type="button" value="valider" onclick="fabRecadreSvg()"/>
+<input type="reset" onclick="newGrid=true" value="d&#233;faut" />
+<input type="button" value="fermer"  onclick="vaEtVient('fenetre');" />
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+
+
+
+<form id="formImpr"  method="post" action="impr.php" target="impression">
+   <input id="prog" name="prog" type="hidden" />
+   <input id="auteur" name="auteur" type="hidden" value="Sesamath" />
+   <input id="onload" name="onload" type="hidden" />
+   <input id="style" name="style" type="hidden" />
+   <input id="impr" name="impr" type="hidden" />
+</form>
+
+<div id="enregistrer">
+<p>
+Enregistrer un projet (pour pouvoir le modifier plus tard)<br/>
+<button  onclick="fabEnregistrer()">ok</button>
+</p>
+<hr/>
+<p>
+Ou bien enegistrer un exercice jouable<br/>
+qui devra prendre place dans le r&eacute;pertoire fabrique/produit.<br/>
+<button onclick="fabImprime(true)">ok</button>
+</p>
+<hr/>
+<p>
+<a href="javascript:vaEtVient('enregistrer')">
+Fermer
+</a>
+</p>
+</div>
+
+<div id="ouvrir">
+ <p>
+   Choisir un fichier sur votre disque 
+ </p>
+ <form id="sauve"  enctype="multipart/form-data" method="post" action="enregistrer.php" target="cible">
+  <input type="hidden" name="texte" />
+  <input type="hidden" name="nom" />
+  <input type="file" value="*.fab" accept="text/*"  name="fichier"/>
+  <button onclick="fabOuvrir()">ok</button>
+ </form>
+<hr/>
+
+ <p>
+ Ou bien ouvrir une d&eacute;mo :
+ <select  onchange="fabDemo(this)">
+  <option>Choisir :</option>
+  <optgroup label="d&eacute;mos p&eacute;dagogiques">		
+  <option value="developpement">D&eacute;veloppement</option>
+  <option value="ecriture" >Ecritures</option>
+  <option value="eq" >Equations</option>
+  <option value="eq2" >Equations pas &agrave; pas</option>		
+  <option value="fraction" >Fraction</option>
+  <option value="nbDerive" >Nombre D&eacute;riv&eacute;</option>
+  <option value="puissances" >Puissances</option>
+  </optgroup>
+  <optgroup label="d&eacute;mos Techniques">			 		
+  <option value="tableur" >Tableur</option>	
+  <option value="couleurs">Couleurs</option>	
+  <option value="distributeur">Distributeur</option>
+  <option value="programmation">Programmation</option>
+  <option value="selecteur">S&eacute;lecteur</option>		
+  </optgroup>
+  <optgroup label="Squelettes">			 		
+  <option value="squelette">Exercice avec texte</option>		
+  </optgroup>
+ </select>
+ </p>
+ <hr />
+<p>
+<a href="javascript:vaEtVient('ouvrir')">
+Fermer
+</a>
+</p>
+</div>
+
+
+
+<iframe name="cible" id="cible" style="visibility:hidden">
+</iframe>
+
+</body>
+</html>

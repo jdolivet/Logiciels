@@ -1,0 +1,81 @@
+xhtml@`Sesamath@`
+F(k):={
+si k==0
+alors retourne &#34;A&#34;;
+fsi
+si k==1
+alors retourne &#34;B&#34;;
+fsi
+si k==2
+alors retourne &#34;C&#34;;
+fsi;
+}@`<div style=\"text-align: center;\">
+</div>
+<h1 style=\"text-align: center;\">
+ &#160;Test du s&#233;lecteur
+</h1>
+<hr style=\"width: 100%; height: 2px;\"/>
+<p>
+ Ici le s&#233;lecteur d&#233;clenche directement l\'action :
+ <br/>
+</p>
+<p>
+ <fab contenteditable=\"false\">
+  &#160;
+  <select contenteditable=\"false\" onclick=\"fabEcrit(this)\" id=\"fab0\" onchange=\"xc.eval(\'F\',\'fab0\');xc.imprimeMml(\'fab1\',0,true,true);xc.imprimeSvg(fab.graphique,true);\" title=\"fab0\" oncontextmenu=\"fabEditeAction(this)\" cible=\"fab1\" arguments=\"fab0\" xcas=\"F\">
+   <option value=\"item0\">
+    item0
+   </option>
+   <option value=\"item1\">
+    item1
+   </option>
+   <option value=\"it2\">
+    it2
+   </option>
+  </select>
+ </fab>
+ <br/>
+</p>
+<p contenteditable=\"false\" class=\"sortie\" onmousedown=\"return false\" onmouseup=\"fabEcrit(this)\" horsligne=\"1\" id=\"fab1\" title=\"fab1\" oncontextmenu=\"fabEditeAction(this)\" texte=\"\'A\'\" style=\"height: 21px;\">
+ <math display=\"block\" index=\"undefined\" xmlns=\'http://www.w3.org/1998/Math/MathML\' >
+  <mi>
+   A
+  </mi>
+ </math>
+</p>
+<p>
+ L&#224;, il faut cliquer sur &#34;ok&#34; pour d&#233;clencher l\'action
+</p>
+<p>
+ <fab contenteditable=\"false\">
+  &#160;
+  <select contenteditable=\"false\" onclick=\"fabEcrit(this)\" id=\"fab2\" onchange=\"\" title=\"fab2\" oncontextmenu=\"fabEditeAction(this)\" cible=\"\" arguments=\"\">
+   <option value=\"item0\">
+    item0
+   </option>
+   <option value=\"item1\">
+    item1
+   </option>
+   <option>
+    item 2
+   </option>
+  </select>
+ </fab>
+ <fab contenteditable=\"false\">
+  &#160;&#160;
+  <input type=\"button\" id=\"fab3\" value=\"ok\" onclick=\"xc.eval(\'F\',\'fab2\');xc.imprimeMml(\'fab4\',0,true,true);xc.imprimeSvg(fab.graphique,true);\" title=\"fab3\" oncontextmenu=\"fabEditeAction(this)\" cible=\"fab4\" arguments=\"fab2\" xcas=\"F\"/>
+  &#160;
+ </fab>
+ <br type=\"_moz\"/>
+</p>
+<p contenteditable=\"false\" class=\"sortie\" onmousedown=\"return false\" onmouseup=\"fabEcrit(this)\" horsligne=\"1\" id=\"fab4\" title=\"fab4\" oncontextmenu=\"fabEditeAction(this)\" texte=\"\'C\'\" style=\"height: 21px;\">
+ <math display=\"block\" index=\"undefined\" xmlns=\'http://www.w3.org/1998/Math/MathML\' >
+  <mi>
+   C
+  </mi>
+ </math>
+</p>
+<p>
+ ...
+</p>
+@`fabInitialiseSvg(-5,-5,5,5,10);@`5@`false@`false@`

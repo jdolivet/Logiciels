@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Aide fabrique</title>
+<link rel="stylesheet" href="aide.css">
+
+  </head>
+
+  <body>
+    <div id="canevas">
+    <h1>Les composants actifs</h1>
+      <p id="menu">
+	<a href="index.html">Accueil</a>
+	<a href="programme.html">Programme</a>
+	<a href="interface.html">Interface</a>
+	<span>Composants</span>
+	<a href="distributeur.html">Distributeur</a>
+	<a href="demos.html">D&eacute;mos</a>
+	<a href="sauvegarde.html">Sauvegarde</a>
+	<a href="publication.html">Publication</a>
+	<a href="video.html">Vid&eacute;o</a>
+	<a href="apropos.html">A propos</a>
+      </p>
+
+      <p class="post_it">
+      	Nom : 	<input value="fab0">
+	<br>
+	Texte : <input value="ok">
+	<br>
+	L'&eacute;v&eacute;nement <input value="onclick">
+	d&eacute;clenche l'appel de la fonction xcas :
+	<input value="MaFonction"><br>
+	avec pour argument(s) :
+	<input value="fab1 x -3"><br>
+	cible(s) :<br>
+	<input value="fab2 fab3"><br>
+	<button>valider</button>
+	<button>supprimer</button>
+      </p> 
+      <p>
+	La liste  &laquo;ins&eacute;rer&raquo propose trois cat&eacute;gories de composants, 
+	destin&eacute;s &agrave; dialoguer avec Xcas
+      </p>
+      <ol>
+	<li>
+	  <b>Les entr&eacute;es</b>
+	  (&laquo;input&raquo, bouton ...) en orange.
+	</li>
+	<li>
+	  <b>Les affichages</b>
+	  (hors ligne, historique...) en jaune.
+	</li>
+	<li>
+	  <b>Les composants
+	  &laquo;pr&ecirc;ts &agrave; l'emploi&raquo</b>
+	  (tableur...) en gris.
+	</li>
+      </ol>
+      <p>
+	Une fois les composants ins&eacute;r&eacute;s 
+	dans l'exercice, 
+	on param&egrave;tre ceux-ci par un clic droit
+	de la souris.
+	Dans le cas des entr&eacute;es, cela fait surgir
+	une bo&icirc;te de dialogue comme ci-contre :
+      </p>
+      <ul>
+	<li>
+	  <b>Nom</b> : pour modifier le nom du composant.
+ 	</li>
+	<li>
+	  <b>Texte</b> : modifier le texte du bouton.
+	</li>
+	<li>
+	  <b>Ev&eacute;nement</b> :  onclick (bouton) 
+	  ou onchange (select, input) ou rien. 
+	  D&eacute;clenchera (ou non) l'appel de la fonction
+	  xcas.
+	</li>
+	<li>
+	  <b>Fonction xcas</b> : nom de la fonction xcas appel&eacute;e.
+	  Taper seulement le nom de la fonction, sans parenth&egrave;se
+	  ni argument.
+	</li>
+	<li>
+	  <b>Argument(s)</b> : taper la liste des arguments &agrave;
+	  passer &agrave; la fonction xcas, en les s&eacute;parant
+	  simplement par un blanc.
+	  Il peut s'agir de nom de composants (fab1 ...), de nombres 
+	  ou de variables formelles (x...)
+	</li>
+	<li>
+	  <b>Cible(s)</b> : donner le nom des affichages
+	  qui recevront les valeurs retourn&eacute;es par 
+	  la fonction xcas.
+	</li>
+      </ul>
+      <p>
+	<i>Remarque 1</i> :
+	pour introduire des noms de composants dans
+	les champs &laquo;argument(s) &raquo; ou
+	&laquo;cible(s) &raquo;, il suffit de cliquer 
+	sur ceux-ci.
+	<br>
+	<i>Remarque 2</i> :
+	les graphiques ne sont pas pris en compte par cette 
+	bo&icirc;te de dialogue. Pour afficher un graphique,
+	ins&eacute;rer un affichage graphique dans l'exercice, puis pr&eacute;voyez
+	une instruction graphique dans votre fonction xcas,
+	sans d&eacute;signer de cible.
+   </div>
+  </body>
+</html>

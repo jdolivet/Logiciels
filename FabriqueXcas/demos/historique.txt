@@ -1,0 +1,258 @@
+xhtml@`Sesamath@`
+@`<div style=\"text-align: center;\">
+</div>
+<h1 style=\"text-align: center;\">
+ &#160;d&#233;mo technique : &#34;historique&#34;
+</h1>
+<hr style=\"width: 100%; height: 2px;\"/>
+<p>
+ Expression
+  : 
+ <fab contenteditable=\"false\">
+  &#160;&#160;
+  <input id=\"fab0\" onclick=\"fabEcrit(this)\" onchange=\"\" onkeypress=\"this.focus()\" onkeyup=\"fabChapeau(this,event)\" title=\"fab0\" oncontextmenu=\"fabEditeAction(this)\"/>
+  &#160;
+ </fab>
+ <fab contenteditable=\"false\">
+  &#160; &#160;
+  <input type=\"button\" id=\"fab1\" value=\"Factoriser\" onclick=\"xc.eval(\'factoriser\',\'fab0\');xc.imprimeMml(\'fab2\',0,true,false);xc.imprimeSvg(fab.graphique,false);\" title=\"fab1\" oncontextmenu=\"fabEditeAction(this)\" cible=\"fab2\" arguments=\"fab0\" xcas=\"factoriser\"/>
+  &#160;
+ </fab>
+ &#160;
+</p>
+<p>
+ L\'expression factoris&#233;e s\'affichera dans cette &#233;l&#233;ment de type &#34;
+ historique&#34; :
+ <br/>
+</p>
+<div class=\"histo\" onmousedown=\"return false\" onmouseup=\"fabEcrit(this)\" horsligne=\"1\" id=\"fab2\" title=\"fab2\" oncontextmenu=\"fabEditeAction(this)\" texte=\"(x-2)*(x^2+2*x+4)\" style=\"\">
+ &#160;
+ <math display=\"block\" index=\"undefined\" xmlns=\'http://www.w3.org/1998/Math/MathML\' >
+  <msup>
+   <mrow>
+    <mo>
+     (
+    </mo>
+    <mi>
+     x
+    </mi>
+    <mo>
+     +
+    </mo>
+    <mn>
+     1
+    </mn>
+    <mo>
+     )
+    </mo>
+   </mrow>
+   <mrow>
+    <mn>
+     2
+    </mn>
+   </mrow>
+  </msup>
+ </math>
+ <hr/>
+ <math display=\"block\" index=\"undefined\" xmlns=\'http://www.w3.org/1998/Math/MathML\' >
+  <msup>
+   <mrow>
+    <mi>
+     x
+    </mi>
+   </mrow>
+   <mrow>
+    <mn>
+     2
+    </mn>
+   </mrow>
+  </msup>
+  <mo>
+   +
+  </mo>
+  <mn>
+   2
+  </mn>
+  <mi>
+   x
+  </mi>
+  <mo>
+   +
+  </mo>
+  <mn>
+   5
+  </mn>
+ </math>
+ <hr/>
+ <math display=\"block\" index=\"undefined\" xmlns=\'http://www.w3.org/1998/Math/MathML\' >
+  <mo>
+   (
+  </mo>
+  <mi>
+   x
+  </mi>
+  <mo>
+   -
+  </mo>
+  <mn>
+   1
+  </mn>
+  <mo>
+   )
+  </mo>
+  <mo>
+   (
+  </mo>
+  <mi>
+   x
+  </mi>
+  <mo>
+   +
+  </mo>
+  <mn>
+   3
+  </mn>
+  <mo>
+   )
+  </mo>
+ </math>
+ <hr/>
+ <math display=\"block\" index=\"undefined\" xmlns=\'http://www.w3.org/1998/Math/MathML\' >
+  <mo>
+   (
+  </mo>
+  <mi>
+   x
+  </mi>
+  <mo>
+   +
+  </mo>
+  <mo>
+   -
+  </mo>
+  <mrow>
+   <msqrt>
+    <mn>
+     5
+    </mn>
+   </msqrt>
+  </mrow>
+  <mo>
+   +
+  </mo>
+  <mn>
+   1
+  </mn>
+  <mo>
+   )
+  </mo>
+  <mo>
+   (
+  </mo>
+  <mi>
+   x
+  </mi>
+  <mo>
+   +
+  </mo>
+  <msqrt>
+   <mn>
+    5
+   </mn>
+  </msqrt>
+  <mo>
+   +
+  </mo>
+  <mn>
+   1
+  </mn>
+  <mo>
+   )
+  </mo>
+ </math>
+ <hr/>
+ <math display=\"block\" index=\"undefined\" xmlns=\'http://www.w3.org/1998/Math/MathML\' >
+  <mo>
+   (
+  </mo>
+  <mi>
+   x
+  </mi>
+  <mo>
+   -
+  </mo>
+  <mn>
+   2
+  </mn>
+  <mo>
+   )
+  </mo>
+  <mo>
+   (
+  </mo>
+  <msup>
+   <mrow>
+    <mi>
+     x
+    </mi>
+   </mrow>
+   <mrow>
+    <mn>
+     2
+    </mn>
+   </mrow>
+  </msup>
+  <mo>
+   +
+  </mo>
+  <mn>
+   2
+  </mn>
+  <mi>
+   x
+  </mi>
+  <mo>
+   +
+  </mo>
+  <mn>
+   4
+  </mn>
+  <mo>
+   )
+  </mo>
+ </math>
+ <hr/>
+</div>
+<p>
+ Cliquer ici pour red&#233;velopper l\'expression factoris&#233;e
+  :
+ <fab contenteditable=\"false\">
+  &#160;&#160;
+  <input type=\"button\" id=\"fab3\" value=\"Redévelopper\" onclick=\"xc.eval(\'developper\',\'fab2\');xc.imprimeMml(\'fab4\',0,true,true);xc.imprimeSvg(fab.graphique,true);\" title=\"fab3\" oncontextmenu=\"fabEditeAction(this)\" cible=\"fab4\" arguments=\"fab2\" xcas=\"developper\"/>
+  &#160;
+ </fab>
+ <br type=\"_moz\"/>
+</p>
+<p contenteditable=\"false\" class=\"sortie\" onmousedown=\"return false\" onmouseup=\"fabEcrit(this)\" horsligne=\"1\" id=\"fab4\" title=\"fab4\" oncontextmenu=\"fabEditeAction(this)\" texte=\"x^3-8\" style=\"\">
+ <math display=\"block\" index=\"undefined\" xmlns=\'http://www.w3.org/1998/Math/MathML\' >
+  <msup>
+   <mrow>
+    <mi>
+     x
+    </mi>
+   </mrow>
+   <mrow>
+    <mn>
+     3
+    </mn>
+   </mrow>
+  </msup>
+  <mo>
+   -
+  </mo>
+  <mn>
+   8
+  </mn>
+ </math>
+</p>
+@`fabInitialiseSvg(-5,-5,5,5,10);@`5@`false@`false@`
