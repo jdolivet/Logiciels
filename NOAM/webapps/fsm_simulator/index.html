@@ -1,0 +1,182 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ivan Zuzak, Vedrana Jankovic" />
+    <meta name="keywords" content="fsm, finite-state machine, regex, regular expression, simulation, software, graphviz" />
+    <meta name="description" content="FSM simulator is a Web application for step-by-step visual simulation of finite state machines which are defined with regular expressions." />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>FSM Simulator</title>
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" />
+    <link rel="stylesheet" href="styles/fsm_simulator.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <h1>FSM simulator</h1>
+
+        <p>
+          Visually simulate your DFA <br>
+          one input symbol at a time!
+        </p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="container controls">
+        <div class="row-fluid">
+          <div class="span6 column">
+            <h3> &#x2460; Create automaton </h3>
+
+            <ul class="nav nav-tabs">
+              <li id="fsminput"><a data-toggle="tab">Input automaton</a></li>
+            </ul>
+
+            <div class="tab-content">
+
+              <div class="tab-pane active" id="tab2">
+                <div class="instructions">
+                  <p>
+                    Enter a FSM into the input field below or click <strong>Generate random DFA</strong> to have the app generate a simple FSM randomly for you.
+                    Next, click <strong>Create automaton</strong> to display the FSM's transition graph.
+                  </p>
+                  <p>
+                    A valid FSM definition contains a list of states, symbols and transitions, the initial state and the accepting states. States and symbols are alphanumeric character strings and can not overlap. Transitions have the format: <code>stateA:symbol>stateB,stateC</code>. The <code>$</code> character is used to represent the empty string symbol (epsilon) but should not be listed in the alphabet.
+                  </p>
+                </div>
+
+                <p>
+                  <textarea id="fsm" class="input-block-level" type="text" placeholder="or write your own" spellcheck="false"></textarea>
+                </p>
+              </div>
+            </div>
+
+            <p id="fsmError" class="text-error">
+            </p>
+
+            <p>
+              <button id="createAutomaton" class="btn">Create automaton</button>
+            </p>
+
+          </div>
+
+          <div class="span6 column">
+            <h3> &#x2461; Simulate automaton </h3>
+
+            <div class="instructions">
+              <p>
+                Enter a sequence of input symbols into the input field below or click <strong>Random string</strong>, <strong>Acceptable string</strong> and <strong>Unacceptable string</strong> to have the app generate random acceptable and unacceptable sequences for you.
+              </p>
+              <p>
+                Click <strong>Read next</strong> to have the FSM consume the next input symbol in the sequence and <strong>Read all</strong> to consume all remaining input symbols.
+                Click <strong>Step backward</strong> to go back one symbol and <strong>Reset</strong> to reset the FSM and go back to the beginning of the input sequence.
+              </p>
+              <p>
+                The input field highlights the input symbol that will be read next.
+              </p>
+            </div>
+
+            <p>
+              <button id="generateRandomString" class="btn" disabled> Random string </button>
+              <button id="generateRandomAcceptableString" class="btn" disabled> Acceptable string </button>
+              <button id="generateRandomUnacceptableString" class="btn" disabled> Unacceptable string </button>
+            </p>
+
+            <p>
+              <div class="control-group">
+                <input id="inputString" type="text" class="input-block-level" placeholder="See if this fits" disabled spellcheck="false">
+              </div>
+            </p>
+
+            <p>
+              <button id="startStop" class="btn" disabled>
+                Start
+              </button>
+              <button id="inputFirst" class="btn" disabled>
+                <i class="icon-fast-backward"></i>
+                Reset
+              </button>
+              <button id="inputPrevious" class="btn" disabled>
+                <i class="icon-backward"></i>
+                Step backward
+              </button>
+              <button id="inputNext" class="btn" disabled>
+                <i class="icon-forward"></i>
+                Read next
+              </button>
+              <button id="inputLast" class="btn" disabled>
+                <i class="icon-fast-forward"></i>
+                Read all
+              </button>
+            </p>
+
+            <p id="inputError" class="text-error">
+            </p>
+
+          </div>
+        </div>
+
+        <hr />
+      </div>
+
+      <div class="container graph">
+        <h3> &#x2462; Transition graph </h3>
+
+        <p>
+          The FSM being simulated is displayed in the form of a transition graph.
+          The nodes representing the current states of the FSM are colored in <span class="currentState">&nbsp;&nbsp;&nbsp;</span>.
+        </p>
+
+        <div id="automatonGraph"> </div>
+      </div>
+
+     
+
+    <div class="footer">
+      <p>
+        <strong>FSM simulator</strong> is a demo of using <a href="https://github.com/izuzak/noam">noam</a>, a JavaScript library for working with finite-state machines, grammars and regular expressions.
+      </p>
+      <p>
+        Created by <a href="http://ivanzuzak.info">Ivan Zuzak</a> and <a href="http://vedri.ca">Vedrana Jankovic</a>.
+        Built with <a href="https://github.com/izuzak/noam">Noam</a>, <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, <a href="https://github.com/mdaines/viz.js">Viz.js</a>, and <a href="http://jquery.com/">jQuery</a>.
+        <br>
+        Code available on <a href="https://github.com/izuzak/noam/tree/master/webapps/fsm_simulator">GitHub</a> and licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License v2.0</a>.
+      </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+    <script src="http://mdaines.github.io/viz.js/bower_components/viz.js/viz.js"></script>
+    <script src="../../lib/browser/noam.js"></script>
+    <script src="scripts/fsm_simulator.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36346935-1']);
+      _gaq.push(['_setDomainName', 'auto']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '5162c171613f5d6f68000001');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  </body>
+</html>
